@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class TeacherActivity extends AppCompatActivity {
 
+    private static final int RESULT_CODE_TEACHER = 33;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,36 +26,29 @@ public class TeacherActivity extends AppCompatActivity {
         sendBackButton.setOnClickListener(v -> {
             Intent resultIntent = new Intent();
             resultIntent.putExtra("correctedText", correctedText);
-            setResult(RESULT_OK, resultIntent);
-            finish(); // return to student
+            setResult(RESULT_CODE_TEACHER, resultIntent); // Code 33
+            finish(); // Quay về cho học sinh
         });
     }
 
     private String correctText(String text) {
         if (text == null || text.trim().isEmpty()) return "Không có nội dung.";
 
-        // Chuẩn hoá khoảng trắng
         text = text.trim().replaceAll("\\s+", " ");
-
-        // Thêm dấu phẩy sau một số liên từ tiếng Việt (nếu chưa có)
         String[] lienTu = { "và", "nhưng", "nên", "vì", "tuy", "dù", "mặc dù" };
         for (String tu : lienTu) {
             text = text.replaceAll(" (?i)" + tu + " ", ", " + tu + " ");
         }
 
-        // Viết hoa chữ cái đầu câu
         String[] sentences = text.split("(?<=[.!?])\\s*");
         StringBuilder corrected = new StringBuilder();
         for (String sentence : sentences) {
             sentence = sentence.trim();
             if (sentence.isEmpty()) continue;
-
-            // Viết hoa chữ cái đầu
             sentence = sentence.substring(0, 1).toUpperCase() + sentence.substring(1);
             corrected.append(sentence).append(" ");
         }
 
-        // Thêm dấu chấm cuối nếu thiếu
         String result = corrected.toString().trim();
         if (!result.endsWith(".") && !result.endsWith("!") && !result.endsWith("?")) {
             result += ".";
