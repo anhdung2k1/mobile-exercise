@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Exercise3</string>
+    <string name="student_title">Học Sinh Lớp 1</string>
+    <string name="student_write">HS Viết</string>
+    <string name="student_submit">Nộp Bài</string>
+    <string name="student_fixed">Cô giáo sửa</string>
+    <string name="teacher_title">Cô Giáo Dạy Chính Tả</string>
+    <string name="teacher_paragraph">Đoạn văn</string>
+    <string name="teacher_fixed">Đã sửa bài</string>
+</resources>
