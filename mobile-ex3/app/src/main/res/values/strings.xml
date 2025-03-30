@@ -6,5 +6,6 @@
     <string name="student_fixed">Cô giáo sửa</string>
     <string name="teacher_title">Cô Giáo Dạy Chính Tả</string>
     <string name="teacher_paragraph">Đoạn văn</string>
+    <string name="teacher_paraphase_hint">Chỉnh sửa đoạn văn ở đây...</string>
     <string name="teacher_fixed">Đã sửa bài</string>
 </resources>

@@ -3,6 +3,7 @@ package com.example.exercise3;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +17,7 @@ public class TeacherActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher);
 
-        TextView textToReview = findViewById(R.id.textToReview);
+        EditText textToReview = findViewById(R.id.textToReview);
         Button sendBackButton = findViewById(R.id.sendBackButton);
 
         String studentText = getIntent().getStringExtra("studentText");
@@ -24,8 +25,9 @@ public class TeacherActivity extends AppCompatActivity {
         textToReview.setText(correctedText);
 
         sendBackButton.setOnClickListener(v -> {
+            String finalText = textToReview.getText().toString();
             Intent resultIntent = new Intent();
-            resultIntent.putExtra("correctedText", correctedText);
+            resultIntent.putExtra("correctedText", finalText);
             setResult(RESULT_CODE_TEACHER, resultIntent); // Code 33
             finish(); // Quay về cho học sinh
         });

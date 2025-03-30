@@ -15,15 +15,19 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="16dp" />
 
-    <TextView
+    <EditText
         android:id="@+id/textToReview"
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:layout_margin="16dp"
+        android:autofillHints=""
         android:background="@color/white"
         android:gravity="top|start"
         android:padding="12dp"
         android:text="@string/teacher_paragraph"
+        android:inputType="textMultiLine"
+        android:hint="@string/teacher_paraphase_hint"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/teacherTitle" />
